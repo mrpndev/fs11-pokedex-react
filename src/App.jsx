@@ -3,12 +3,17 @@ import './App.css'
 import Input from './components/Input'
 import Card from './components/Card'
 import NoPokemon from './components/NoPokemon'
+import { useParams } from 'react-router-dom'
 
 function App() {
+	// read and extrapolate the pokemon from the param
+	let { pokemon } = useParams()
+	console.log(pokemon)
 
-	let [search, setSearch] = useState("")
+	let [search, setSearch] = useState(pokemon || "")
 	let [data, setData] = useState(null)
 	console.log(data)
+
 
 	useEffect(() => {
 		if (search) {
